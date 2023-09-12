@@ -1,0 +1,7 @@
+CREATE TABLE funcionario (
+
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    idade INT NOT NULL
+
+);

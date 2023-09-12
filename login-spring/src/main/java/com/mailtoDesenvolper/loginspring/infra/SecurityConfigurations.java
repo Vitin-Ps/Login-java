@@ -25,13 +25,14 @@ public class SecurityConfigurations {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(authorize -> {
-                            authorize.requestMatchers(HttpMethod.POST, "/login").permitAll();
-                            authorize.requestMatchers(HttpMethod.POST, "/login/cadastrar").permitAll();
-                            authorize.requestMatchers("/produto/**").hasRole("ADMIN");
-                            authorize.anyRequest().authenticated();
-                        }
-
+                .authorizeHttpRequests(authorize -> authorize
+                            .requestMatchers(HttpMethod.POST, "/login").permitAll()
+                            .requestMatchers(HttpMethod.POST, "/login/cadastrar").permitAll()
+                            .requestMatchers("/produto/**").hasRole("ADMIN")
+                            .requestMatchers(HttpMethod.POST, "/token/gerar").hasRole("ADMIN")
+                            .requestMatchers(HttpMethod.POST, "/funcionario").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/login/recuperar").permitAll()
+                            .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

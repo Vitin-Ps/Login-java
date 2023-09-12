@@ -3,7 +3,7 @@ package com.mailtoDesenvolper.loginspring.controller;
 import com.mailtoDesenvolper.loginspring.domain.produto.DadosCadastroProduto;
 import com.mailtoDesenvolper.loginspring.domain.produto.DadosListagemProduto;
 import com.mailtoDesenvolper.loginspring.domain.produto.Produto;
-import com.mailtoDesenvolper.loginspring.domain.produto.ProdutoRepository;
+import com.mailtoDesenvolper.loginspring.repositories.ProdutoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

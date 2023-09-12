@@ -1,5 +1,6 @@
-package com.mailtoDesenvolper.loginspring.domain.produto;
+package com.mailtoDesenvolper.loginspring.repositories;
 
+import com.mailtoDesenvolper.loginspring.domain.produto.Produto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

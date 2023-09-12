@@ -1,6 +1,6 @@
 package com.mailtoDesenvolper.loginspring.infra;
 
-import com.mailtoDesenvolper.loginspring.domain.usuario.UsuarioRepository;
+import com.mailtoDesenvolper.loginspring.repositories.UsuarioRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,7 +24,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         var tokenJWT = this.recuperarToken(request);
         if(tokenJWT != null) {
             var subject = tokenService.validaToken(tokenJWT);
-            var usuario = repository.findByLogin(subject);
+            var usuario = repository.findByLoginTwo(subject);
 
             var autenticacao = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(autenticacao);

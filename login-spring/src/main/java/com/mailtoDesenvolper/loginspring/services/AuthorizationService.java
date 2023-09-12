@@ -1,6 +1,6 @@
 package com.mailtoDesenvolper.loginspring.services;
 
-import com.mailtoDesenvolper.loginspring.domain.usuario.UsuarioRepository;
+import com.mailtoDesenvolper.loginspring.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
